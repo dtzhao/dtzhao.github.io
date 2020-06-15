@@ -6,6 +6,7 @@
 
         <title>David Zhao</title>
         <meta name="David Zhao" content="Personal site" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&display=swap" rel="stylesheet" />
         <style>
@@ -23,14 +24,20 @@
             }
             .title-1,
             .title-1 > a {
-                font-size: 33px;
+                font-size: 24px;
                 font-weight: 400;
             }
             .title-3 {
-                font-size: 19px;
+                font-size: 17px;
             }
-            p {
+            .body-text {
                 font-size: 15px;
+                line-height: 26px;
+                margin-top: 15px;
+            }
+            p,
+            p > a {
+                font-size: 13px;
                 line-height: 26px;
                 margin-top: 15px;
             }
@@ -51,7 +58,6 @@
             .header {
                 width: 100%;
                 max-width: 565px;
-                margin: 0px 30px;
             }
             .content {
                 max-width: 480px;
@@ -84,34 +90,78 @@
             }
             .project-content {
                 display: flex;
+                flex-direction: column;
                 justify-content: space-between;
             }
             .project-title {
-                max-width: 565px;
-                margin-right: 60px;
+                margin-bottom: 30px;
+                margin-right: 0;
             }
             .project-description {
-                max-width: 445px;
             }
             .project-graphic {
-                height: 500px;
-                background-color: #c4c4c4;
-                margin-top: 60px;
-                margin-bottom: 150px;
-                margin-left: 30px;
-                margin-right: 30px;
+                height: 100%;
+                max-height: 300px;
+                background-color: #f7fafc;
+                margin-top: 30px;
+                margin-bottom: 100px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
-            @media only screen and (max-width: 768px) {
-                .title-1 {
-                    font-size: 30px;
+
+            .drop-shadow {
+                filter: drop-shadow(4px 4px 20px rgba(0, 0, 0, 0.2));
+            }
+
+            /* Extra small devices (phones, 600px and down) */
+            @media only screen and (max-width: 600px) {
+            }
+
+            /* Small devices (portrait tablets and large phones, 600px and up) */
+            @media only screen and (min-width: 600px) {
+                .header-container {
+                    margin: 0px 30px;
                 }
+                .project-container {
+                    margin: 0px 30px;
+                }
+                .project-graphic {
+                    max-height: 500px;
+                    margin-top: 60px;
+                    margin-bottom: 150px;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+            }
+
+            /* Medium devices (landscape tablets, 768px and up) */
+            @media only screen and (min-width: 768px) {
                 .project-content {
-                    flex-direction: column;
+                    flex-direction: row;
+                }
+                .title-1,
+                .title-1 > a {
+                    font-size: 35px;
+                }
+                .title-3 {
+                    font-size: 19px;
                 }
                 .project-title {
-                    margin-bottom: 30px;
-                    margin-right: 0;
+                    max-width: 700px;
+                    margin-right: 60px;
                 }
+
+                .project-description {
+                    max-width: 400px;
+                }
+            }
+
+            /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (min-width: 992px) {
+            }
+
+            /* Extra large devices (large laptops and desktops, 1200px and up) */
+            @media only screen and (min-width: 1200px) {
             }
         </style>
     </head>
@@ -123,12 +173,12 @@
                     David Zhao is a product designer at <a href="http://omstudio.co/" target="_">O/M</a>, a small but rad studio in San Francisco and New York.
                 </span>
                 <div class="content">
-                    <p>
-                        Hey, that’s me. If you're looking for an overview of design work I've done, you're in the right place.
+                    <p class="body-text">
+                        Hey, that’s me. If you're looking for an overview of design work I've done, you've come to the right place.
                     </p>
-                    <p>
+                    <p class="body-text">
                         Note that most of my projects are covered under NDA. To learn more about my work,
-                        <a href="mailto:david.t.zhao@gmail.com">send me a message</a>.
+                        <a class="body-text" href="mailto:david.t.zhao@gmail.com">send me a message</a>.
                     </p>
                     <div class="footer">
                         <a href="mailto:david.t.zhao@gmail.com">Email</a>
@@ -145,17 +195,27 @@
                 <div class="project-line"></div>
             </div>
             <div class="project-content">
-                <div class="project-title title-1">Stride—Q&A knowledge sharing for small business</div>
+                <div class="project-title title-1">Stride—Q&A knowledge sharing network for small business</div>
                 <div class="project-description">
                     <div class="title-3">Google Area 120</div>
                     <p>
-                        Stride is an experimental platform for small businesses to ask and answer questions. We worked with the team to research, design, and
-                        launch the MVP in 3 months before shifting focus to growth and retention.
+                        Stride is an experimental platform for small businesses to ask and answer questions. Our studio worked with the team to define, design,
+                        and launch the MVP in 3 months before designing for growth for the next 12 months and beyond.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="project-graphic"></div>
+        <div style="display: flex; justify-content: space-between; margin-top: 60px; margin-left: 30px; margin-right: 30px; margin-bottom: 150px;">
+            <div style="display: flex; align-items: center;">
+                <img src="./Stride Discovery.svg" height="500px" style="position: absolute;" />
+            </div>
+            <div style="width: 850px; display: flex; justify-content: space-between;">
+                <img src="./Stride 1.png" height="400px" class="drop-shadow" />
+                <img src="./Stride 2.png" height="400px" class="drop-shadow" />
+                <img src="./Stride 3.png" height="400px" class="drop-shadow" />
+                <img src="./Stride 4.png" height="400px" class="drop-shadow" />
+            </div>
+        </div>
 
         <div class="project-container">
             <div class="project-liner">
@@ -181,17 +241,18 @@
                 <div class="project-line"></div>
             </div>
             <div class="project-content">
-                <div class="project-title title-1">Tango—Taxonomy management for e&#8209;commerce</div>
+                <div class="project-title title-1">Taxonomy management for online retail operations</div>
                 <div class="project-description">
-                    <div class="title-3">Walmart</div>
+                    <div class="title-3">Walmart eCommerce</div>
                     <p>
-                        Tango is a product taxonomy tool used by site merchandisers to manage Walmart.com. I worked closely with the team on a variety of
-                        projects.
+                        I worked on a product taxonomy tool used by site merchandisers to manage Walmart.com.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="project-graphic"></div>
+        <div class="project-graphic" style="height: 400px; display: flex; justify-content: center; align-items: center; color: #a0aec0;">
+            Coming soon
+        </div>
 
         <div class="project-container">
             <div class="project-liner">
@@ -209,6 +270,24 @@
                 </div>
             </div>
         </div>
-        <div class="project-graphic"></div>
+
+        <div
+            style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 60px;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 150px;
+            "
+        >
+            <div style="z-index: 1;">
+                <video playsinline autoplay muted loop src="autoflow-demo.mp4" height="500px" class="drop-shadow" style="border-radius: 2px;"></video>
+            </div>
+            <div style="max-width: 850px; display: flex; align-items: center; justify-content: flex-end;">
+                <img src="./autoflow-brand.svg" height="400px" style="position: absolute; border-radius: 2px;" />
+            </div>
+        </div>
     </body>
 </html>
