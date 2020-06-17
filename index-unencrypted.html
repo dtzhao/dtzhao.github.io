@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>David Zhao</title>
+        <meta name="David Zhao" content="Personal site" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&display=swap" rel="stylesheet" />
+        <style>
+            html {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            body {
+                width: 100%;
+                max-width: 1200px;
+                background-color: #ffffff;
+                color: #2a2a54;
+                font-family: "Merriweather";
+            }
+            .title-1,
+            .title-1 > a {
+                font-size: 24px;
+                font-weight: 400;
+            }
+            .title-3 {
+                font-size: 17px;
+            }
+            .body-text {
+                font-size: 15px;
+                line-height: 26px;
+                margin-top: 15px;
+            }
+            p,
+            p > a {
+                font-size: 13px;
+                line-height: 26px;
+                margin-top: 15px;
+            }
+            a,
+            a:visited {
+                font-size: 15px;
+                font-weight: 900;
+                text-decoration: underline;
+                color: #2a2a54;
+            }
+            .header-container {
+                width: auto;
+                height: 95vh;
+                min-height: 500px;
+                display: flex;
+                align-items: center;
+                margin: 0 30px;
+            }
+            .header {
+                width: 100%;
+                max-width: 565px;
+            }
+            .content {
+                max-width: 480px;
+                margin-top: 30px;
+            }
+            .footer {
+                margin-top: 60px;
+            }
+            .footer > a:not(:first-child) {
+                margin-left: 15px;
+            }
+            .internal-hover {
+                text-decoration: underline;
+            }
+            .project-container {
+                margin: 0px 30px;
+            }
+            .project-liner {
+                display: flex;
+                align-items: center;
+                margin-bottom: 30px;
+            }
+            .project-number {
+                width: 40px;
+            }
+            .project-line {
+                width: 100%;
+                height: 1px;
+                background-color: #d8d8d8;
+            }
+            .project-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .project-title {
+                margin-bottom: 30px;
+                margin-right: 0;
+            }
+            .project-description {
+            }
+            .project-graphic {
+                height: 100%;
+                max-height: 300px;
+                background-color: #f7fafc;
+                margin-top: 30px;
+                margin-bottom: 100px;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .drop-shadow {
+                filter: drop-shadow(4px 4px 20px rgba(0, 0, 0, 0.2));
+            }
+
+            /* 01 Stride */
+            .stride-graphics-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 5vh;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 150px;
+            }
+            .stride-drive-container {
+                display: none;
+                display: flex;
+                align-items: center;
+            }
+            .stride-drive {
+                display: none;
+                height: 500px;
+                position: absolute;
+            }
+            .stride-phone-container {
+                width: 100%;
+                max-width: auto;
+                display: flex;
+                justify-content: space-between;
+            }
+            .stride-phone {
+                height: auto;
+                max-height: 40vw;
+            }
+
+            /* 02 Nimbus */
+            .nimbus-graphics-container {
+                margin-top: 5vh;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 150px;
+            }
+            .nimbus-illustrations-container {
+                display: none;
+            }
+            .nimbus-illustration-airplane {
+                width: 450px;
+            }
+            .nimbus-illustration-world-map {
+                width: 700px;
+                opacity: 0.25;
+            }
+            .nimbus-wireframe-container {
+                max-width: 100%;
+            }
+            .nimbus-wireframe {
+                position: relative;
+                border-radius: 2px;
+                max-height: 500px;
+                width: 100%;
+            }
+
+            /* 03 Tango */
+            .coming-soon-placeholder {
+                height: 50vw;
+                max-height: 300px;
+                width: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #f5f8fa;
+                color: #a7b6c2;
+                margin: 0px 30px;
+                margin-top: 2vh;
+                margin-bottom: 150px;
+                border-radius: 2px;
+            }
+
+            /* 04 Autoflow */
+            .autoflow-graphics-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 5vh;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 5vh;
+            }
+            .autoflow-video-container {
+                z-index: 1;
+                max-height: 500px;
+                max-width: 800px;
+            }
+            .autoflow-video {
+                border-radius: 2px;
+                max-height: 500px;
+                max-width: 100%;
+            }
+            .autoflow-brand-container {
+                max-width: 850px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+            .autoflow-brand {
+                display: none;
+                position: absolute;
+                height: 400px;
+                border-radius: 2px;
+            }
+
+            /* Extra small devices (phones, 600px and down) */
+            @media only screen and (max-width: 600px) {
+            }
+
+            /* Small devices (portrait tablets and large phones, 600px and up) */
+            @media only screen and (min-width: 600px) {
+                .header-container {
+                    margin: 0px 30px;
+                }
+                .project-container {
+                    margin: 0px 30px;
+                }
+                .project-graphic {
+                    max-height: 500px;
+                    margin-top: 60px;
+                    margin-bottom: 150px;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+            }
+
+            /* Medium devices (landscape tablets, 768px and up) */
+            @media only screen and (min-width: 768px) {
+                .project-content {
+                    flex-direction: row;
+                }
+                .title-1,
+                .title-1 > a {
+                    font-size: 35px;
+                }
+                .title-3 {
+                    font-size: 19px;
+                }
+                .project-title {
+                    max-width: 700px;
+                    margin-right: 60px;
+                }
+                .project-description {
+                    max-width: 400px;
+                }
+                .autoflow-brand {
+                    display: block;
+                }
+                .stride-graphics-container {
+                    margin-top: 60px;
+                }
+                .coming-soon-placeholder {
+                    margin-top: 45px;
+                }
+                .autoflow-graphics-container {
+                    margin-top: 60px;
+                    margin-bottom: 100px;
+                }
+                .nimbus-wireframe {
+                    max-height: none;
+                }
+            }
+
+            /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (min-width: 992px) {
+                .stride-drive-container {
+                    display: flex;
+                }
+                .stride-drive {
+                    display: block;
+                }
+                .stride-phone-container {
+                    max-width: 850px;
+                }
+                .stride-phone {
+                    max-height: 400px;
+                }
+                .nimbus-graphics-container {
+                    margin-top: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .nimbus-illustrations-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 500px;
+                }
+                .nimbus-wireframe-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+                .nimbus-wireframe {
+                    width: auto;
+                    position: absolute;
+                    max-height: 500px;
+                }
+            }
+
+            /* Extra large devices (large laptops and desktops, 1200px and up) */
+            @media only screen and (min-width: 1200px) {
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header-container">
+            <div class="header">
+                <span class="title-1">
+                    David Zhao is a product designer at <a href="http://omstudio.co/" target="_">O/M</a>, a small but rad studio in San Francisco and New York.
+                </span>
+                <div class="content">
+                    <p class="body-text">
+                        Hey, that’s me. If you're looking for an overview of design work I've done, you've come to the right place.
+                    </p>
+                    <p class="body-text">
+                        Note that most of my projects are covered under NDA. To learn more about my work,
+                        <a class="body-text" href="mailto:david.t.zhao@gmail.com">send me a message</a>.
+                    </p>
+                    <div class="footer">
+                        <a href="mailto:david.t.zhao@gmail.com">Email</a>
+                        <a href="https://twitter.com/davidtzhao" target="_">Twitter</a>
+                        <a href="https://www.linkedin.com/in/david-zhao-01a17511a/" target="_">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-container">
+            <div class="project-liner">
+                <div class="project-number title-3">01</div>
+                <div class="project-line"></div>
+            </div>
+            <div class="project-content">
+                <div class="project-title title-1">Stride—Q&A knowledge sharing network for small business</div>
+                <div class="project-description">
+                    <div class="title-3">Google Area 120</div>
+                    <p>
+                        Stride is an experimental platform for small businesses to ask and answer questions. Our studio worked with the team to define, design,
+                        and launch the MVP in 12 weeks before shifting to growth for the next 12 months and beyond.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="stride-graphics-container">
+            <div class="stride-drive-container">
+                <img src="./assets/Stride Discovery.svg" class="stride-drive" />
+            </div>
+            <div class="stride-phone-container">
+                <img src="./assets/Stride 1.png" class="stride-phone drop-shadow" />
+                <img src="./assets/Stride 2.png" class="stride-phone drop-shadow" />
+                <img src="./assets/Stride 3.png" class="stride-phone drop-shadow" />
+                <img src="./assets/Stride 4.png" class="stride-phone drop-shadow" />
+            </div>
+        </div>
+
+        <div class="project-container">
+            <div class="project-liner">
+                <div class="project-number title-3">02</div>
+                <div class="project-line"></div>
+            </div>
+            <div class="project-content">
+                <div class="project-title title-1">Nimbus—Revenue platform for commercial airlines</div>
+                <div class="project-description">
+                    <div class="title-3">Confidential</div>
+                    <p>
+                        Nimbus is used by airline analysts to make fare pricing decisions based on high-volume data analysis. We partnered closely with the team
+                        to design an aviation-grade system from the ground up.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="nimbus-graphics-container">
+            <div class="nimbus-illustrations-container">
+                <img src="./assets/airplane.svg" class="nimbus-illustration-airplane" />
+                <img src="./assets/world-map.svg" class="nimbus-illustration-world-map" />
+            </div>
+            <div class="nimbus-wireframe-container">
+                <img src="./assets/nimbus.png" class="nimbus-wireframe drop-shadow" />
+            </div>
+        </div>
+
+        <div class="project-container">
+            <div class="project-liner">
+                <div class="project-number title-3">03</div>
+                <div class="project-line"></div>
+            </div>
+            <div class="project-content">
+                <div class="project-title title-1">Tango—Taxonomy management for online retail operations</div>
+                <div class="project-description">
+                    <div class="title-3">Walmart</div>
+                    <p>
+                        Tango is a product taxonomy tool used by site merchandisers to manage Walmart.com. I worked with the team to design new features and
+                        create a scalable design language.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="coming-soon-placeholder">
+            Coming soon
+        </div>
+
+        <div class="project-container">
+            <div class="project-liner">
+                <div class="project-number title-3">04</div>
+                <div class="project-line"></div>
+            </div>
+            <div class="project-content">
+                <div class="project-title title-1">Autoflow—Fast, free user flow diagramming in Figma</div>
+                <div class="project-description">
+                    <div class="title-3">Side project</div>
+                    <p>
+                        Autoflow is a Figma plugin I co-created and developed that automates the manual process of drawing user flow arrows. You can
+                        <a href="https://www.figma.com/community/plugin/733902567457592893/Autoflow" target="_">try it out here</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="autoflow-graphics-container">
+            <div class="autoflow-video-container">
+                <video playsinline autoplay muted loop src="./assets/autoflow-demo.mp4" class="autoflow-video drop-shadow"></video>
+            </div>
+            <div class="autoflow-brand-container">
+                <img src="./assets/autoflow-brand.svg" class="autoflow-brand" />
+            </div>
+        </div>
+    </body>
+</html>
