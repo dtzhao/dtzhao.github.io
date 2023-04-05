@@ -1,374 +1,466 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <title>David Zhao</title>
-    <meta charset="utf-8" />
-    <meta name="David Zhao" content="Personal site" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
+    <head>
+        <title>David Zhao</title>
+        <meta charset="utf-8" />
+        <meta name="David Zhao" content="Personal site" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet" />
 
-    <style>
-      html {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-      body {
-        width: 100%;
-        max-width: 588px;
-        background-color: #ffffff;
-        color: #404040;
-        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        background: white;
-        background-image: radial-gradient(
-          rgba(0, 0, 0, 0.25) 1px,
-          transparent 0
-        );
-        background-size: 32px 32px;
-        background-position: -12px -12px;
-      }
-      .body-column {
-        max-width: 556px;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        padding: 16px;
-      }
-      .body-text {
-        font-size: 16px;
-        line-height: 1.4;
-      }
-      .subtitle {
-        font-size: 32px;
-        font-weight: 200;
-        opacity: 0.3;
-        margin-bottom: 28px;
-      }
-      p {
-        margin-top: 16px;
-      }
-      a,
-      a:visited {
-        font-weight: 600;
-        text-decoration: underline;
-        color: #2a2a54;
-      }
-      i {
-        font-size: 14px;
-        opacity: 0.6;
-      }
-      li {
-        margin-bottom: 8px;
-        line-height: 1.4;
-      }
-      .asterisk {
-        color: rgba(204, 0, 0, 1);
-      }
-      .divider {
-        height: 0px;
-        width: 100%;
-        opacity: 0.1;
-        margin-top: 80px;
-        margin-bottom: 32px;
-      }
+        <style>
+            html {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            body {
+                width: 100%;
+                max-width: 588px;
+                background-color: #ffffff;
+                color: #404040;
+                font-family: "Fira Mono", "Courier", "monospace" /*"Helvetica Neue", "Helvetica", "Arial", sans-serif;*/;
+                background: white;
+                background-image: radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 0);
+                background-size: 32px 32px;
+                background-position: -12px -12px;
+            }
+            .body-column {
+                max-width: 556px;
+                margin-top: 100px;
+                margin-bottom: 100px;
+                padding: 16px;
+            }
+            .body-text {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .subtitle {
+                font-size: 36px;
+                font-weight: 200;
+                opacity: 0.3;
+                margin-bottom: 28px;
+            }
+            p {
+                margin-top: 24px;
+            }
+            a,
+            a:visited {
+                font-weight: 600;
+                text-decoration: underline;
+                color: #2a2a54;
+            }
+            i {
+                font-size: 13px;
+                opacity: 0.6;
+            }
+            ul {
+                font-size: 14px;
+            }
+            li {
+                margin-bottom: 8px;
+                line-height: 1.5;
+            }
+            .asterisk {
+                color: rgba(204, 0, 0, 1);
+            }
+            .divider {
+                height: 0px;
+                width: 100%;
+                opacity: 0.1;
+                margin-top: 128px;
+                margin-bottom: 32px;
+            }
 
-      #projects > *:not(:last-child) {
-        margin-bottom: 32px;
-      }
-      .project-title {
-        margin-bottom: 8px;
-      }
-      .project-name {
-        font-size: 18px;
-        font-weight: 800;
-      }
-      .project-time-range {
-        font-size: 16px;
-        opacity: 0.5;
-        margin-left: 2px;
-      }
-      #contact-links {
-        margin-top: 24px;
-      }
+            #projects > *:not(:last-child) {
+                margin-bottom: 64px;
+            }
+            .project-title {
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+            .project-name {
+                font-size: 20px;
+                font-weight: 800;
+            }
+            .project-time-range {
+                font-size: 14px;
+                opacity: 0.5;
+                margin-left: 8px;
+            }
+            #contact-links {
+                margin-top: 24px;
+            }
 
-      .tooltip {
-        position: relative;
-        display: inline-block;
-      }
+            .tooltip {
+                position: relative;
+                display: inline-block;
+            }
 
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        height: 34px;
-        background-color: #1e1e1e;
-        color: rgba(255, 255, 255, 0.9);
-        text-align: center;
-        border-radius: 2px;
-        padding: 0 12px;
-        z-index: 1;
-        bottom: -48px;
-        white-space: nowrap;
-        font-family: "Inconsolata", monospace;
-        font-size: 14px;
-      }
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                height: 34px;
+                background-color: #1e1e1e;
+                color: rgba(255, 255, 255, 0.9);
+                text-align: center;
+                border-radius: 2px;
+                padding: 0 12px;
+                z-index: 1;
+                bottom: -48px;
+                white-space: nowrap;
+                font-family: "Inconsolata", monospace;
+                font-size: 14px;
+            }
 
-      .tooltip .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: 16px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-        transform: rotate(180deg);
-      }
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 16px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: black transparent transparent transparent;
+                transform: rotate(180deg);
+            }
 
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-      }
-      .tooltip:hover,
-      .tooltip:focus,
-      .tooltip:active .tooltiptext {
-        visibility: visible;
-      }
-      /* The media query will only apply if the viewport is 600px wide or narrower. */
-      @media only screen and (max-width: 600px) {
-        .subtitle {
-          font-size: 28px;
-        }
-        .body-text {
-          font-size: 14px;
-        }
-        a {
-          font-size: 14px;
-        }
-        i {
-          font-size: 12px;
-        }
-        .project-name {
-          font-size: 16px;
-        }
-        li {
-          font-size: 14px;
-        }
-        body {
-          min-width: 0;
-        }
-        .tooltip .tooltiptext {
-          font-size: 12px;
-        }
-        .project-title {
-          margin-bottom: 6px;
-        }
-        .body-column {
-          margin-bottom: 50px;
-        }
-      }
-      /* The media query will only apply if the viewport is 900px wide or wider. */
-      @media only screen and (min-width: 900px) {
-        body {
-          max-width: 60vw;
-          min-width: 588px;
-        }
-      }
-    </style>
-  </head>
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+            .tooltip:hover,
+            .tooltip:focus,
+            .tooltip:active .tooltiptext {
+                visibility: visible;
+            }
 
-  <body>
-    <div class="body-column">
-      <div class="subtitle">About</div>
-      <div class="header">
-        <p class="body-text">
-          Hi! My name is David Zhao. I’m a product designer who has worked
-          across consumer social and enterprise, data visualization and design
-          tooling. I live in New York City with my laptop and a lovely
-          assortment of houseplants.
-        </p>
-        <p class="body-text">
-          Design appeals to me as an exercise in orienteering—of aesthetic and
-          taste, incentive and behavior, scale and efficiency<span
-            class="asterisk"
-            >*</span
-          >—and for the present historical oddity as the territory looks to
-          evolve faster than the knapsacks and compasses at our disposal.
-        </p>
-        <p class="body-text">
-          <span
-            class="asterisk"
-            style="font-size: 14px; font-style: italic; padding-right: 1px"
-            >*</span
-          ><i>Why waste time ship wrong product when right design do trick?</i>
-        </p>
-        <div id="contact-links">
-          <div class="tooltip" role="button" tabindex="0">
-            <a style="cursor: default">Email</a>
-            <span class="tooltiptext"
-              >Contact me:&nbsp;<b>[this website name]@gmail.com</b></span
-            >
-          </div>
-          <a
-            href="https://www.linkedin.com/in/david-zhao-01a17511a/"
-            target="_blank"
-            style="margin-left: 8px"
-          >
-            LinkedIn
-          </a>
+            .tooltip2 {
+                position: relative;
+                display: inline-block;
+            }
+
+            .tooltip2 .tooltiptext2 {
+                visibility: hidden;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                height: 34px;
+                background-color: #1e1e1e;
+                color: rgba(255, 255, 255, 0.9);
+                text-align: center;
+                border-radius: 2px;
+                padding: 0 12px;
+                z-index: 1;
+                left: -120px;
+                bottom: -48px;
+                white-space: nowrap;
+                font-family: "Inconsolata", monospace;
+                font-size: 14px;
+            }
+
+            .tooltip2 .tooltiptext2::after {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 150px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: black transparent transparent transparent;
+                transform: rotate(180deg);
+            }
+
+            .tooltip2:hover .tooltiptext2 {
+                visibility: visible;
+            }
+            .tooltip2:hover,
+            .tooltip2:focus,
+            .tooltip2:active .tooltiptext2 {
+                visibility: visible;
+            }
+            .graphic {
+                border-radius: 3px 3px 0 0;
+                max-height: 630px;
+                max-width: 90%;
+                box-shadow: 0 0px 6px rgba(0, 0, 0, 0.15);
+                object-fit: cover;
+            }
+            .graphics-container {
+                height: 313px;
+                max-width: 556px;
+                background: #f5f5f8;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                margin-bottom: 24px;
+                padding-top: 40px;
+                overflow: hidden;
+                border-radius: 3px;
+                box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            }
+            .project-container {
+                position: relative;
+            }
+            .button {
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                border-radius: 20px;
+                background: white;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                top: calc(50% - 20px);
+                cursor: pointer;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .left {
+                left: calc(0% - 20px);
+            }
+            .right {
+                left: calc(100% - 20px);
+            }
+            .button > img {
+                opacity: 0.3;
+            }
+            .button:hover {
+                box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+            }
+            .button:hover > img {
+                opacity: 0.5;
+            }
+            .hidden {
+                display: none !important;
+            }
+            .noselect {
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                -khtml-user-select: none; /* Konqueror HTML */
+                -moz-user-select: none; /* Old versions of Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+            }
+            .noselect:not(:focus)::selection {
+                background: transparent;
+            }
+            /* The media query will only apply if the viewport is 600px wide or narrower. */
+            @media only screen and (max-width: 600px) {
+                .subtitle {
+                    font-size: 28px;
+                }
+                .body-text {
+                    font-size: 13px;
+                }
+                a {
+                    font-size: 13px;
+                }
+                i {
+                    font-size: 12px;
+                }
+                .project-name {
+                    font-size: 16px;
+                }
+                li {
+                    font-size: 13px;
+                }
+                body {
+                    min-width: 0;
+                }
+                .tooltip .tooltiptext {
+                    font-size: 12px;
+                }
+                .project-title {
+                    margin-bottom: 6px;
+                }
+                .body-column {
+                    margin-bottom: 50px;
+                }
+                .graphics-container {
+                    height: 224px;
+                }
+            }
+            /* The media query will only apply if the viewport is 900px wide or wider. */
+            @media only screen and (min-width: 900px) {
+                body {
+                    max-width: 60vw;
+                    min-width: 588px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="body-column">
+            <div class="subtitle">About</div>
+            <div class="header">
+                <p class="body-text">
+                    Hi! My name is David Zhao. I’m a product designer who has worked across consumer social and enterprise, data visualization and design
+                    tooling. I live in New York City with my laptop and a lovely assortment of houseplants.
+                </p>
+                <p class="body-text">
+                    Design appeals to me as an exercise in orienteering—of aesthetic and taste, incentive and behavior, scale and efficiency<span
+                        class="asterisk"
+                        >*</span
+                    >—and for the present historical oddity as the territory looks to evolve faster than the knapsacks and compasses at our disposal.
+                </p>
+                <p class="body-text">
+                    <span class="asterisk" style="font-style: italic; padding-right: 1px">*</span
+                    ><i>Why waste time ship wrong product when right design do trick?</i>
+                </p>
+                <div id="contact-links">
+                    <div class="tooltip" role="button" tabindex="0">
+                        <a style="cursor: default">Email</a>
+                        <span class="tooltiptext">Contact me:&nbsp;<b>[this website name]@gmail.com</b></span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/david-zhao-01a17511a/" target="_blank" style="margin-left: 8px"> LinkedIn </a>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="subtitle">Work</div>
+            <div id="projects">
+                <div id="autoflow" class="project-container">
+                    <div class="graphics-container noselect">
+                        <video playsinline autoplay muted loop src="./assets/autoflow-demo.mp4" class="graphic"></video>
+                    </div>
+                    <div class="project-title">
+                        <span class="project-name">Autoflow</span>
+                        <span class="project-time-range">(2019–)</span>
+                    </div>
+                    <div class="project-body body-text">
+                        <a href="https://www.figma.com/community/plugin/733902567457592893/Autoflow" target="_blank">Figma plugin</a>
+                        for diagramming user flows, written in TypeScript<wbr />/HTML<wbr />/CSS. A collaboration with
+                        <a href="https://www.zhayitong.com/" target="_blank">Yitong Zhang</a>
+                        (2019–2020) turned solo project (2020–). As of April 2023, the #8 most installed Figma plugin worldwide.
+                    </div>
+                </div>
+                <div id="quora" class="project-container">
+                    <div class="graphics-container noselect">
+                        <img src="./assets/quora_plus_marketing_page.svg" class="graphic" />
+                    </div>
+                    <div class="project-title">
+                        <span class="project-name">Quora</span>
+                        <span class="project-time-range">(2020–2023)</span>
+                    </div>
+                    <div class="project-body body-text">
+                        I worked on Monetization at
+                        <a href="https://www.quora.com/" target="_blank">Quora</a>. I was closely involved in the launch of the company’s first subscriptions
+                        product, ran A/B tests, wrote React, iterated on the Quora ads manager, and hosted a weekly design team book club.
+                    </div>
+                </div>
+                <div id="o/m" class="project-container">
+                    <div style="position: relative">
+                        <div id="o-m-right-chevron-button" class="button right noselect">
+                            <img src="./assets/chevron-right.svg" />
+                        </div>
+                        <div id="o-m-left-chevron-button" class="button left noselect">
+                            <img src="./assets/chevron-right.svg" style="transform: rotate(180deg)" />
+                        </div>
+                        <div class="graphics-container noselect">
+                            <video id="o/m-graphic-0" playsinline autoplay muted loop src="./assets/FLYR-demo.mp4" class="graphic"></video>
+                            <img id="o/m-graphic-1" src="./assets/nimbus.png" class="graphic hidden" />
+                            <img id="o/m-graphic-2" src="./assets/FLYR-sotw.png" class="graphic hidden" />
+                            <img id="o/m-graphic-3" src="./assets/FLYR-long-charts.svg" class="graphic hidden" style="box-shadow: none" />
+                            <img id="o/m-graphic-4" src="./assets/FLYR-dist.svg" class="graphic hidden" style="box-shadow: none" />
+                            <img id="o/m-graphic-5" src="./assets/FLYR-molecules.svg" class="graphic hidden" />
+                        </div>
+                    </div>
+                    <div class="project-title">
+                        <span class="project-name">O/M</span>
+                        <span class="project-time-range">(2019–2020)</span>
+                    </div>
+                    <div class="project-body body-text">
+                        <a href="https://www.omstudio.co/" target="_blank">O/M</a> is a boutique digital product design studio based in San Francisco. With the
+                        support of the studio, I was fortunate to work as the founding designer on <span style="white-space: nowrap">0-to-1</span> projects with
+                        <a href="https://area120.google.com/" target="_blank">Google Area 120</a>
+                        and <a href="https://flyrlabs.com/" target="_blank">FLYR Labs</a>.
+                    </div>
+                </div>
+                <p class="body-text" style="background: rgba(245, 245, 248, 0.5); padding: 14px">
+                    <i>Full portfolio available upon request.</i>
+                    <span class="tooltip2" role="button" tabindex="0">
+                        <a style="font-style: italic; cursor: default">Email me</a>
+                        <span class="tooltiptext2">Contact me:&nbsp;<b>[this website name]@gmail.com</b></span>
+                    </span>
+                </p>
+            </div>
+            <div class="divider"></div>
+            <div class="subtitle">Links</div>
+            <p class="body-text">Bite-sized (or greater) favorite articles, essays, media:</p>
+            <ul>
+                <li>
+                    Wikipedia [<a href="https://en.wikipedia.org/wiki/Timeline_of_the_far_future" target="_blank">Timeline of the far future</a>] [<a
+                        href="https://en.wikipedia.org/wiki/Tarrare"
+                        target="_blank"
+                        >Tarrare</a
+                    >]
+                </li>
+                <li>YouTube [<a href="https://www.youtube.com/@everyframeapainting" target="_blank">Every Frame a Painting</a>]</li>
+                <li>TV series [<a href="https://www.google.com/search?q=mad+men" target="_blank">Mad Men</a>]</li>
+                <li>
+                    TV ads [<a href="https://www.youtube.com/watch?v=yB47wx-b6sY" target="_blank">GE HC India</a>] [<a
+                        href="https://www.youtube.com/watch?v=pt69g72_MWU"
+                        target="_blank"
+                        >GE HC China</a
+                    >] [<a href="https://www.youtube.com/watch?v=BnBvlz8EaZ0" target="_blank">Thank You, Mom</a>]
+                </li>
+                <li>
+                    Sci-fi novelle [<a href="https://raley.english.ucsb.edu/wp-content/uploads/Reading/Chiang-story.pdf" target="_blank">Story of Your Life</a>]
+                    [<a href="https://www.kkoworld.com/kitablar/deniel_kiz_elcernon_ucun_guller_eng.pdf" target="_blank">Flowers for Algernon</a>]
+                </li>
+                <li>
+                    Fiction/memoirs [<a href="https://mostlyfiction.com/excerpts/lifeofpi.htm" target="_blank">Life of Pi (excerpt)</a>] [<a
+                        href="https://www.cusd80.com/cms/lib/AZ01001175/Centricity/Domain/4937/The%20Rights%20to%20the%20Streets%20of%20Memphis..pdf"
+                        target="_blank"
+                        >Black Boy (excerpt)</a
+                    >]
+                </li>
+                <li>
+                    Blog posts [<a href="https://www.kalzumeus.com/2014/11/07/doing-business-in-japan/" target="_blank">Doing Business In Japan</a>] [<a
+                        href="https://waitbutwhy.com/2015/12/the-tail-end.html"
+                        target="_blank"
+                        >The Tail End</a
+                    >]
+                </li>
+                <li>
+                    Asian American identity [<a href="https://nymag.com/news/features/asian-americans-2011-5/" target="_blank">Paper Tigers</a>] [<a
+                        href="https://shimhyejin.medium.com/questions-on-the-limits-effects-of-asian-american-allyship-bb545f019117"
+                        target="_blank"
+                        >questions on (the limits & effects of) (asian american) allyship</a
+                    >]
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="divider"></div>
-      <div class="subtitle">Work</div>
-      <div id="projects">
-        <div id="autoflow">
-          <div class="project-title">
-            <span class="project-name">Autoflow</span>
-            <span class="project-time-range">(2019–)</span>
-          </div>
-          <div class="project-body body-text">
-            <a
-              href="https://www.figma.com/community/plugin/733902567457592893/Autoflow"
-              target="_blank"
-              >Figma plugin</a
-            >
-            for diagramming user flows, written in TypeScript<wbr />/HTML<wbr />/CSS.
-            A collaboration with
-            <a href="https://www.zhayitong.com/" target="_blank"
-              >Yitong Zhang</a
-            >
-            (2019–2020) turned solo project (2020–). As of March 2023, the #8
-            most installed Figma plugin worldwide.
-          </div>
-        </div>
-        <div id="quora">
-          <div class="project-title">
-            <span class="project-name">Quora</span>
-            <span class="project-time-range">(2020–2023)</span>
-          </div>
-          <div class="project-body body-text">
-            I worked on Monetization at
-            <a href="https://www.quora.com/" target="_blank">Quora</a>. I was
-            closely involved in the launch of the company’s first subscriptions
-            product, ran A/B tests, wrote React, iterated on the Quora ads
-            manager, and hosted a weekly design team book club.
-          </div>
-        </div>
-        <div id="o/m">
-          <div class="project-title">
-            <span class="project-name">O/M</span>
-            <span class="project-time-range">(2019–2020)</span>
-          </div>
-          <div class="project-body body-text">
-            <a href="https://www.omstudio.co/" target="_blank">O/M</a> is a
-            boutique digital product design studio based in San Francisco. With
-            the support of the studio, I was fortunate to work as the founding
-            designer on <span style="white-space: nowrap">0-to-1</span> projects
-            with
-            <a href="https://area120.google.com/" target="_blank"
-              >Google Area 120</a
-            >
-            and <a href="https://flyrlabs.com/" target="_blank">FLYR Labs</a>.
-          </div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="subtitle">Links</div>
-      <p class="body-text">
-        Bite-sized (or greater) favorite articles, essays, media:
-      </p>
-      <ul>
-        <li>
-          Wikipedia [<a
-            href="https://en.wikipedia.org/wiki/Timeline_of_the_far_future"
-            target="_blank"
-            >Timeline of the far future</a
-          >] [<a href="https://en.wikipedia.org/wiki/Tarrare" target="_blank"
-            >Tarrare</a
-          >]
-        </li>
-        <li>
-          YouTube [<a
-            href="https://www.youtube.com/@everyframeapainting"
-            target="_blank"
-            >Every Frame a Painting</a
-          >]
-        </li>
-        <li>
-          TV series [<a
-            href="https://www.google.com/search?q=mad+men"
-            target="_blank"
-            >Mad Men</a
-          >]
-        </li>
-        <li>
-          TV ads [<a
-            href="https://www.youtube.com/watch?v=yB47wx-b6sY"
-            target="_blank"
-            >GE HC India</a
-          >] [<a
-            href="https://www.youtube.com/watch?v=pt69g72_MWU"
-            target="_blank"
-            >GE HC China</a
-          >] [<a
-            href="https://www.youtube.com/watch?v=BnBvlz8EaZ0"
-            target="_blank"
-            >Thank You, Mom</a
-          >]
-        </li>
-        <li>
-          Sci-fi novelle [<a
-            href="https://raley.english.ucsb.edu/wp-content/uploads/Reading/Chiang-story.pdf"
-            target="_blank"
-            >Story of Your Life</a
-          >] [<a
-            href="https://www.kkoworld.com/kitablar/deniel_kiz_elcernon_ucun_guller_eng.pdf"
-            target="_blank"
-            >Flowers for Algernon</a
-          >]
-        </li>
-        <li>
-          Fiction/memoirs [<a
-            href="https://mostlyfiction.com/excerpts/lifeofpi.htm"
-            target="_blank"
-            >Life of Pi (excerpt)</a
-          >] [<a
-            href="https://www.cusd80.com/cms/lib/AZ01001175/Centricity/Domain/4937/The%20Rights%20to%20the%20Streets%20of%20Memphis..pdf"
-            target="_blank"
-            >Black Boy (excerpt)</a
-          >]
-        </li>
-        <li>
-          Blog posts [<a
-            href="https://www.kalzumeus.com/2014/11/07/doing-business-in-japan/"
-            target="_blank"
-            >Doing Business In Japan</a
-          >] [<a
-            href="https://waitbutwhy.com/2015/12/the-tail-end.html"
-            target="_blank"
-            >The Tail End</a
-          >]
-        </li>
-        <li>
-          Asian American identity [<a
-            href="https://nymag.com/news/features/asian-americans-2011-5/"
-            target="_blank"
-            >Paper Tigers</a
-          >] [<a
-            href="https://shimhyejin.medium.com/questions-on-the-limits-effects-of-asian-american-allyship-bb545f019117"
-            target="_blank"
-            >questions on (the limits & effects of) (asian american) allyship</a
-          >]
-        </li>
-      </ul>
-    </div>
-  </body>
+
+        <script>
+            const assetsFLYR = ["FLYR-demo.mp4", "nimbus.png", "FLYR-sotw.png", "FLYR-long-charts.svg", "FLYR-dist.svg", "FLYR-molecules"];
+            let omIndex = 0;
+
+            document.getElementById("o-m-right-chevron-button").addEventListener("click", advanceRight);
+            document.getElementById("o-m-right-chevron-button").addEventListener("click", advanceRight);
+
+            document.getElementById("o-m-left-chevron-button").addEventListener("click", advanceLeft);
+            document.getElementById("o-m-left-chevron-button").addEventListener("click", advanceLeft);
+
+            function advanceRight() {
+                document.getElementById(`o/m-graphic-${omIndex}`).classList.add("hidden");
+                omIndex += 1;
+                if (omIndex >= assetsFLYR.length) omIndex = 0;
+                document.getElementById(`o/m-graphic-${omIndex}`).classList.remove("hidden");
+            }
+
+            function advanceLeft() {
+                document.getElementById(`o/m-graphic-${omIndex}`).classList.add("hidden");
+                omIndex -= 1;
+                if (omIndex < 0) omIndex = assetsFLYR.length - 1;
+                document.getElementById(`o/m-graphic-${omIndex}`).classList.remove("hidden");
+            }
+        </script>
+    </body>
 </html>
