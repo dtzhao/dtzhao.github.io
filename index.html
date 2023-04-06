@@ -341,8 +341,17 @@
                     </div>
                 </div>
                 <div id="quora" class="project-container">
-                    <div class="graphics-container noselect">
-                        <img src="./assets/quora_plus_marketing_page.svg" class="graphic" />
+                    <div style="position: relative">
+                        <div id="quora-right-chevron-button" class="button right noselect">
+                            <img src="./assets/chevron-right.svg" />
+                        </div>
+                        <div id="quora-left-chevron-button" class="button left noselect">
+                            <img src="./assets/chevron-right.svg" style="transform: rotate(180deg)" />
+                        </div>
+                        <div id="quora-graphics-container" class="graphics-container noselect">
+                            <img id="quora-graphic-0" src="./assets/quora_plus_marketing_page.png" class="graphic" />
+                            <video id="quora-graphic-1" playsinline autoplay muted loop src="./assets/autoflow-demo.mp4" class="graphic hidden"></video>
+                        </div>
                     </div>
                     <div class="project-title">
                         <span class="project-name">Quora</span>
@@ -362,13 +371,13 @@
                         <div id="o-m-left-chevron-button" class="button left noselect">
                             <img src="./assets/chevron-right.svg" style="transform: rotate(180deg)" />
                         </div>
-                        <div class="graphics-container noselect">
-                            <video id="o/m-graphic-0" playsinline autoplay muted loop src="./assets/FLYR-demo.mp4" class="graphic"></video>
-                            <img id="o/m-graphic-1" src="./assets/nimbus.png" class="graphic hidden" />
-                            <img id="o/m-graphic-2" src="./assets/FLYR-sotw.png" class="graphic hidden" />
-                            <img id="o/m-graphic-3" src="./assets/FLYR-long-charts.svg" class="graphic hidden" style="box-shadow: none" />
-                            <img id="o/m-graphic-4" src="./assets/FLYR-dist.svg" class="graphic hidden" style="box-shadow: none" />
-                            <img id="o/m-graphic-5" src="./assets/FLYR-molecules.svg" class="graphic hidden" />
+                        <div id="o/m-graphics-container" class="graphics-container noselect">
+                            <img id="o/m-graphic-0" src="./assets/FLYR-sotw.png" class="graphic" />
+                            <video id="o/m-graphic-1" playsinline autoplay muted loop src="./assets/FLYR-demo.mp4" class="graphic hidden"></video>
+                            <img id="o/m-graphic-2" src="./assets/nimbus.png" class="graphic hidden" />
+                            <img id="o/m-graphic-3" src="./assets/FLYR-long-charts.png" class="graphic hidden" style="box-shadow: none" />
+                            <img id="o/m-graphic-4" src="./assets/FLYR-dist.png" class="graphic hidden" style="box-shadow: none" />
+                            <img id="o/m-graphic-5" src="./assets/FLYR-molecules.png" class="graphic hidden" />
                         </div>
                     </div>
                     <div class="project-title">
@@ -439,27 +448,44 @@
         </div>
 
         <script>
-            const assetsFLYR = ["FLYR-demo.mp4", "nimbus.png", "FLYR-sotw.png", "FLYR-long-charts.svg", "FLYR-dist.svg", "FLYR-molecules"];
+            const omGraphicsCount = document.getElementById("o/m-graphics-container").children.length;
             let omIndex = 0;
 
-            document.getElementById("o-m-right-chevron-button").addEventListener("click", advanceRight);
-            document.getElementById("o-m-right-chevron-button").addEventListener("click", advanceRight);
+            document.getElementById("o-m-right-chevron-button").addEventListener("click", advanceRightOM);
+            document.getElementById("o-m-left-chevron-button").addEventListener("click", advanceLeftOM);
 
-            document.getElementById("o-m-left-chevron-button").addEventListener("click", advanceLeft);
-            document.getElementById("o-m-left-chevron-button").addEventListener("click", advanceLeft);
-
-            function advanceRight() {
+            function advanceRightOM() {
                 document.getElementById(`o/m-graphic-${omIndex}`).classList.add("hidden");
                 omIndex += 1;
-                if (omIndex >= assetsFLYR.length) omIndex = 0;
+                if (omIndex >= omGraphicsCount) omIndex = 0;
                 document.getElementById(`o/m-graphic-${omIndex}`).classList.remove("hidden");
             }
 
-            function advanceLeft() {
+            function advanceLeftOM() {
                 document.getElementById(`o/m-graphic-${omIndex}`).classList.add("hidden");
                 omIndex -= 1;
-                if (omIndex < 0) omIndex = assetsFLYR.length - 1;
+                if (omIndex < 0) omIndex = omGraphicsCount - 1;
                 document.getElementById(`o/m-graphic-${omIndex}`).classList.remove("hidden");
+            }
+
+            const quoraGraphicsCount = document.getElementById("quora-graphics-container").children.length;
+            let quoraIndex = 0;
+
+            document.getElementById("quora-right-chevron-button").addEventListener("click", advanceRightQuora);
+            document.getElementById("quora-left-chevron-button").addEventListener("click", advanceLeftQuora);
+
+            function advanceRightQuora() {
+                document.getElementById(`quora-graphic-${quoraIndex}`).classList.add("hidden");
+                quoraIndex += 1;
+                if (quoraIndex >= quoraGraphicsCount) quoraIndex = 0;
+                document.getElementById(`quora-graphic-${quoraIndex}`).classList.remove("hidden");
+            }
+
+            function advanceLeftQuora() {
+                document.getElementById(`quora-graphic-${quoraIndex}`).classList.add("hidden");
+                quoraIndex -= 1;
+                if (quoraIndex < 0) quoraIndex = quoraGraphicsCount - 1;
+                document.getElementById(`quora-graphic-${quoraIndex}`).classList.remove("hidden");
             }
         </script>
     </body>
