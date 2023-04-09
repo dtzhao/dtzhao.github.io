@@ -304,6 +304,7 @@
                 padding: 4px 6px 4px 6px;
                 border-radius: 3px;
                 font-size: 12px;
+                z-index: 1;
             }
         </style>
     </head>
@@ -365,10 +366,18 @@
                             <img id="quora-graphic-0" src="./assets/quora_plus_marketing_page.png" class="graphic" />
                             <img
                                 id="quora-graphic-1"
+                                src="./assets/checkout.png"
+                                class="graphic hidden"
+                                style="box-shadow: none; filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15))"
+                            />
+                            <img id="quora-graphic-2" src="./assets/user-stats.png" class="graphic hidden" />
+                            <img
+                                id="quora-graphic-3"
                                 src="./assets/payment-error-handling.png"
                                 class="graphic hidden"
                                 style="box-shadow: none; max-width: 65%"
                             />
+                            <img id="quora-graphic-4" src="./assets/transfer-ownership.png" class="graphic hidden" style="box-shadow: none" />
                         </div>
                     </div>
                     <div class="project-title">
@@ -391,12 +400,59 @@
                         </div>
                         <div id="o/m-graphics-container" class="graphics-container noselect">
                             <div id="carousel-caption-o/m" class="carousel-caption"></div>
-                            <img id="o/m-graphic-0" src="./assets/FLYR-sotw.png" class="graphic" />
-                            <video id="o/m-graphic-1" playsinline autoplay muted loop src="./assets/FLYR-demo.mp4" class="graphic hidden"></video>
-                            <img id="o/m-graphic-2" src="./assets/nimbus.png" class="graphic hidden" />
-                            <img id="o/m-graphic-3" src="./assets/FLYR-long-charts.png" class="graphic hidden" style="box-shadow: none" />
-                            <img id="o/m-graphic-4" src="./assets/FLYR-dist.png" class="graphic hidden" style="box-shadow: none" />
-                            <img id="o/m-graphic-5" src="./assets/FLYR-molecules.png" class="graphic hidden" />
+                            <img id="o/m-graphic-0" name="FLYR Labs 1/6" src="./assets/FLYR-sotw.png" class="graphic" />
+                            <video
+                                id="o/m-graphic-1"
+                                name="FLYR Labs 2/6"
+                                playsinline
+                                autoplay
+                                muted
+                                loop
+                                src="./assets/FLYR-demo.mp4"
+                                class="graphic hidden"
+                            ></video>
+                            <img id="o/m-graphic-2" name="FLYR Labs 3/6" src="./assets/nimbus.png" class="graphic hidden" />
+                            <img id="o/m-graphic-3" name="FLYR Labs 4/6" src="./assets/FLYR-long-charts.png" class="graphic hidden" style="box-shadow: none" />
+                            <img id="o/m-graphic-4" name="FLYR Labs 5/6" src="./assets/FLYR-dist.png" class="graphic hidden" style="box-shadow: none" />
+                            <img id="o/m-graphic-5" name="FLYR Labs 6/6" src="./assets/FLYR-molecules.png" class="graphic hidden" />
+                            <img
+                                id="o/m-graphic-6"
+                                name="Google Area 120 1/3"
+                                src="./assets/stride-photos-2.png"
+                                class="graphic hidden"
+                                style="box-shadow: none; margin-top: 16px"
+                            />
+                            <img
+                                id="o/m-graphic-7"
+                                name="Google Area 120 2/3"
+                                src="./assets/stride-photos.png"
+                                class="graphic hidden"
+                                style="box-shadow: none"
+                            />
+                            <div
+                                id="o/m-graphic-8"
+                                name="Google Area 120 3/3"
+                                src="./assets/stride-photos.png"
+                                class="graphic hidden"
+                                style="box-shadow: none; display: flex; justify-content: space-between; height: 100%; width: 100%; margin-top: 16px"
+                            >
+                                <img
+                                    src="./assets/Stride 1.png"
+                                    style="width: calc(25% - 8px); height: fit-content; height: intrinsic; filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15))"
+                                />
+                                <img
+                                    src="./assets/Stride 2.png"
+                                    style="width: calc(25% - 8px); height: fit-content; height: intrinsic; filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15))"
+                                />
+                                <img
+                                    src="./assets/Stride 3.png"
+                                    style="width: calc(25% - 8px); height: fit-content; height: intrinsic; filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15))"
+                                />
+                                <img
+                                    src="./assets/Stride 4.png"
+                                    style="width: calc(25% - 8px); height: fit-content; height: intrinsic; filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15))"
+                                />
+                            </div>
                         </div>
                     </div>
                     <div class="project-title">
@@ -478,22 +534,24 @@
             document.getElementById("o-m-right-chevron-button").addEventListener("click", advanceRightOM);
             document.getElementById("o-m-left-chevron-button").addEventListener("click", advanceLeftOM);
 
-            document.getElementById("carousel-caption-o/m").innerText = `FLYR Labs ${omIndex + 1}/${omGraphicsCount}`;
+            document.getElementById("carousel-caption-o/m").innerText = `FLYR Labs 1/6`;
 
             function advanceRightOM() {
                 document.getElementById(`o/m-graphic-${omIndex}`).classList.add("hidden");
                 omIndex += 1;
                 if (omIndex >= omGraphicsCount) omIndex = 0;
-                document.getElementById(`o/m-graphic-${omIndex}`).classList.remove("hidden");
-                document.getElementById("carousel-caption-o/m").innerText = `FLYR Labs ${omIndex + 1}/${omGraphicsCount}`;
+                const elem = document.getElementById(`o/m-graphic-${omIndex}`);
+                elem.classList.remove("hidden");
+                document.getElementById("carousel-caption-o/m").innerText = `${elem.getAttribute("name")}`;
             }
 
             function advanceLeftOM() {
                 document.getElementById(`o/m-graphic-${omIndex}`).classList.add("hidden");
                 omIndex -= 1;
                 if (omIndex < 0) omIndex = omGraphicsCount - 1;
-                document.getElementById(`o/m-graphic-${omIndex}`).classList.remove("hidden");
-                document.getElementById("carousel-caption-o/m").innerText = `FLYR Labs ${omIndex + 1}/${omGraphicsCount}`;
+                const elem = document.getElementById(`o/m-graphic-${omIndex}`);
+                elem.classList.remove("hidden");
+                document.getElementById("carousel-caption-o/m").innerText = `${elem.getAttribute("name")}`;
             }
 
             const quoraGraphicsCount = document.getElementById("quora-graphics-container").children.length - 1;
